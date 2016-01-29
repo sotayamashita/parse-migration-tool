@@ -1,4 +1,4 @@
-import request from 'axios';
+import axios from 'axios';
 
 export default class Parse {
 
@@ -7,7 +7,11 @@ export default class Parse {
     this.masterKey = masterKey;
   }
 
-  getClientTokens() {
+  /**
+   * Device token
+   * https://goo.gl/QJ21wF
+   */
+  getDeviceTokens() {
     axios.get('https://api.parse.com/1/installations', {
       headers: {
         'X-Parse-Application-Id': this.applicationId,
