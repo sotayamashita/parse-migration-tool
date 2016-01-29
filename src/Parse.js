@@ -15,11 +15,10 @@ export default class Parse {
     axios.get('https://api.parse.com/1/installations', {
       headers: {
         'X-Parse-Application-Id': this.applicationId,
-        'X-Parse-Master-Key': this.masterKey
-      }
+        'X-Parse-Master-Key': this.masterKey,
+      },
     })
-    .then(res => {
-      console.log(res);
-    });
+    .then(res => res.json())
+    .then(result => result.data.result);
   }
 }
