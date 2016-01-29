@@ -1,0 +1,33 @@
+{
+  "name": "parse-migration-tool",
+  "version": "0.0.1",
+  "description": "Parse migration tool",
+  "main": "lib/index.js",
+  "bin": {
+    "parse": "cli.js"
+  },
+  "scripts": {
+    "postinstall": "babel src -d lib"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sotayamashita/parse-migration-tool.git"
+  },
+  "keywords": [
+    "parse",
+    "cli"
+  ],
+  "author": "Sota Yamashita",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/sotayamashita/parse-migration-tool/issues"
+  },
+  "homepage": "https://github.com/sotayamashita/parse-migration-tool#readme",
+  "devDependencies": {
+    "babel-cli": "^6.4.5",
+    "babel-core": "^6.4.5",
+    "babel-eslint": "^4.1.6",
+    "babel-preset-es2015": "^6.3.13",
+    "eslint": "^1.10.3"
+  }
+}
