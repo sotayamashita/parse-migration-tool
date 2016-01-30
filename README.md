@@ -1,6 +1,6 @@
 # parse-migration-tool
 
-> Parse migration tool
+> Parse Migration CLI Tool
 
 ## Install
 
