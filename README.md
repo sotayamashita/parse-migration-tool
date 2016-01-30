@@ -10,7 +10,7 @@ $ npm install -g parse-migration-tool
 
 ## Usage
 
-**1 Create credential json file:**
+**1. Create credential json file:**
 
 ```
 {
@@ -22,7 +22,7 @@ $ npm install -g parse-migration-tool
 * **applicationId** - (Required) - Parse Application ID
 * **masterKey** - (Required) - Parse Master Key (Not your Client Key or REST API Key)
 
-**2 Get installation objects:**
+**2. Get installation objects:**
 
 ```txt
   Usage: parse [options] [command]
@@ -38,6 +38,8 @@ $ npm install -g parse-migration-tool
     -h, --help     output usage information
     -V, --version  output the version number
 ```
+
+* **GrowthPush** - http://en.growthpush.com/
 
 ## License
 
