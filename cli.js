@@ -15,7 +15,13 @@ program
   .action(function(file){
     const d = JSON.parse(fs.readFileSync(file, 'utf8'));
     const p = new Parse(d.applicationId, d.masterKey);
-    p.getDeviceTokens();
+    const c = p.fetchDeviceTokens();
+
+    if (typeof c.then === 'function') {
+      c.then(function(response){
+        console.log(response.data.results);
+      });
+    }
   })
 
 program.parse(process.argv);
