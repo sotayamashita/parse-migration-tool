@@ -7,21 +7,21 @@ const program = require('commander');
 const Parse = require('./lib/Parse.js').default;
 
 program
-  .version(pkg.version)
+  .version(pkg.version);
 
 program
-  .command('client <file>')
-  .description('Get device tokens')
-  .action(function(file){
+  .command('installation <file>')
+  .description('Retrieve the contents of an installation objects')
+  .action(function(file, options){
     const d = JSON.parse(fs.readFileSync(file, 'utf8'));
     const p = new Parse(d.applicationId, d.masterKey);
-    const c = p.fetchDeviceTokens();
+    const r = p.retriveInstallations();
 
-    if (typeof c.then === 'function') {
-      c.then(function(response){
+    if (typeof r.then === 'function') {
+      r.then(function(response) {
         console.log(response.data.results);
-      });
+      })
     }
-  })
+  });
 
 program.parse(process.argv);

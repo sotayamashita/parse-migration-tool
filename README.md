@@ -10,7 +10,7 @@ $ npm install -g parse-migration-tool
 
 ## Usage
 
-Create credential json file:
+**1 Create credential json file:**
 
 ```
 {
@@ -22,11 +22,7 @@ Create credential json file:
 * **applicationId** - (Required) - Parse Application ID
 * **masterKey** - (Required) - Parse Master Key (Not your Client Key or REST API Key)
 
-Get device tokens:
-
-```js
-$ parse client credential.json
-```
+**2 Get installation objects:**
 
 ```txt
   Usage: parse [options] [command]
@@ -34,7 +30,7 @@ $ parse client credential.json
 
   Commands:
 
-    client <file>  Get device tokens
+    installation <file>  Retrieve the contents of an installation objects
 
   Options:
 

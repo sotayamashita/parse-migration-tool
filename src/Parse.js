@@ -7,7 +7,11 @@ export default class Parse {
     this.masterKey = masterKey;
   }
 
-  fetchDeviceTokens() {
+  /**
+   * Retrieve the contents of an installation object
+   * https://parse.com/docs/rest/guide#push-notifications-retrieving-installations
+   */
+  retriveInstallations() {
     return axios.get('https://api.parse.com/1/installations', {
       headers: {
         'X-Parse-Application-Id': this.applicationId,
