@@ -21,6 +21,17 @@ export default class Parse {
     .then(this.checkStatus);
   }
 
+  toCSV(list) {
+    let result = '';
+    let line = '';
+    list.map((item, index) => {
+      line = item.join(',');
+      result += index < list.length ? `${line}\n` : line;
+    });
+
+    return result;
+  }
+
   checkStatus(response) {
     if (response.status < 200 && response.status >= 300) {
       const error = new Error(response.statusText);
