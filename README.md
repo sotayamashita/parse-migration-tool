@@ -2,17 +2,11 @@
 
 > Parse Migration CLI Tool
 
-## Install
+## Setup
 
-```js
-$ npm install -g parse-migration-tool
-```
+Create `credencial.json` to send request:
 
-## Usage
-
-**1. Create credential json file:**
-
-```
+```json
 {
   "applicationId": "<application id>",
   "masterKey": "<master key>"
@@ -22,9 +16,15 @@ $ npm install -g parse-migration-tool
 * **applicationId** - (Required) - Parse Application ID
 * **masterKey** - (Required) - Parse Master Key (Not your Client Key or REST API Key)
 
-**2. Get installation objects:**
+## Install
 
-```txt
+```js
+$ npm install -g parse-migration-tool
+```
+
+## Usage
+
+```bash
   Usage: parse [options] [command]
 
 
@@ -39,7 +39,20 @@ $ npm install -g parse-migration-tool
     -V, --version  output the version number
 ```
 
-* **GrowthPush** - http://en.growthpush.com/
+## Example
+
+**Get installation objects:**
+
+```bash
+$ parse installation credencial.json
+```
+
+**Get file to migrate:**
+
+```bash
+# GrowthPush - http://en.growthpush.com/
+$ parse migration credential.json -s growthpush
+```
 
 ## License
 
