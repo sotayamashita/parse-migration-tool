@@ -44,7 +44,7 @@ $ npm install -g parse-migration-tool
 **Get installation objects:**
 
 ```bash
-$ parse installation credencial.json
+$ parse installation credential.json
 ```
 
 **Get file to migrate:**
