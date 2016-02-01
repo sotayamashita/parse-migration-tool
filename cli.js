@@ -33,17 +33,34 @@ program
     const d = JSON.parse(fs.readFileSync(file, 'utf8'));
     const p = new Parse(d.applicationId, d.masterKey);
     const r = p.retriveInstallations();
-    const a = [];
+
+    const iosData = [];
+    const androidData = [];
 
     if (typeof r.then === 'function') {
       r.then(function(response) {
         const rs = response.data.results;
         for (var i = 0; i < rs.length; i++) {
-          a.push([rs[i].deviceType, rs[i].deviceToken]);
+          if (rs[i].deviceType === 'ios') {
+            iosData.push([rs[i].deviceToken]);
+          } else {
+            androidData.push([rs[i].deviceToken]);
+          }
         }
-        fs.writeFile('output.csv', p.toCSV(a), 'utf8', function(err) {
-          console.log('Saved');
-        });
+        if (iosData.length > 0) {
+          fs.writeFile('ios.csv', p.toCSV(iosData), 'utf8', function(err) {
+            console.log('ios.csv saved');
+          });
+        } else {
+          console.log('It looks you do not have ios device');
+        }
+        if (androidData.length > 0) {
+          fs.writeFile('android.csv', p.toCSV(androidData), 'utf8', function(err) {
+            console.log('android saved');
+          });
+        } else {
+          console.log('It looks you do not have android device');
+        }
       });
     }
   });
