@@ -1,6 +1,11 @@
-# parse-migration-tool
+<p align="center">
+  <img src="https://github.com/sotayamashita/parse-migration-tool/blob/master/media/logo.png" width="400px">
+</p>
 
-> Parse Migration CLI Tool
+[![npm](https://img.shields.io/npm/v/parse-migration-tool.svg?style=flat-square)](https://www.npmjs.com/package/parse-migration-tool)
+[![license](https://img.shields.io/github/license/sotayamashita/parse-migration-tool.svg?style=flat-square)](https://github.com/sotayamashita/parse-migration-tool/blob/master/LICENSE)
+
+**Parse Migration Tool** is [Parse](https://parse.com/) Migration CLI Tool
 
 ## Setup
 
@@ -31,7 +36,7 @@ $ npm install -g parse-migration-tool
   Commands:
 
     installation <file>         Retrieve the contents of an installation objects
-    migration [options] <file>  Create config file to migrate
+    migration [options] <file>  Create files to import from another service
 
   Options:
 
@@ -47,12 +52,15 @@ $ npm install -g parse-migration-tool
 $ parse installation credential.json
 ```
 
-**Get file to migrate:**
+**Create files or Send request to import from another service:**
 
 ```bash
-# GrowthPush - http://en.growthpush.com/
 $ parse migration credential.json -s growthpush
 ```
+
+* [x] [Growth Push](http://en.growthpush.com/) - (type: file) ... `-s or --service growthpush`
+* [ ] [Amazon SNS](https://aws.amazon.com/sns/?nc1=h_ls) - (type: request) ... `-s or --service amazon`
+* [ ] [OneSignal](https://onesignal.com/) - (type: request) ... `-s or --service onesignal`
 
 ## License
 
