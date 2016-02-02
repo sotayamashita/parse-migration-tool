@@ -36,7 +36,7 @@ $ npm install -g parse-migration-tool
   Commands:
 
     installation <file>         Retrieve the contents of an installation objects
-    migration [options] <file>  Create files to import from another service
+    migration [options] <file>  Create files or Send request to import
 
   Options:
 
