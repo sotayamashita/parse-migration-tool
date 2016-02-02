@@ -52,7 +52,7 @@ $ npm install -g parse-migration-tool
 $ parse installation credential.json
 ```
 
-**Create files or Send request to import from another service:**
+**Create files or Send request to import:**
 
 ```bash
 $ parse migration credential.json -s growthpush
