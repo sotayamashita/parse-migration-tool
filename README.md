@@ -30,7 +30,7 @@ $ npm install -g parse-migration-tool
 
 ## Usage
 
-**Help:**
+### Help
 
 ```bash
   Usage: parse [options] [command]
@@ -47,7 +47,9 @@ $ npm install -g parse-migration-tool
     -V, --version  output the version number
 ```
 
-**Growth Push**
+### Migrate to Growth Push
+
+> [Growth Push](http://en.growthpush.com/) is one of the biggest push notification platoform in Japan. Growth Push provides Push Notification's analyses and delivery services for Applications developers. - [relatedcode/ParseAlternatives](https://github.com/relatedcode/ParseAlternatives)
 
 **For Growth push, the script will generate CSV files which are named `ios.csv` and `android.csv`**. You can use it on Growth Push dashbord. They also provide [API](http://ja.growthpush.com/documents#restClientsApi) to import but it will take much time so I choose the way. If you would like to import yours with API, please create a [issue](https://github.com/sotayamashita/parse-migration-tool/issues/new?title=Growth%20Push%20-%20I%20would%20like%20to%20import%20device%20token%20with%20API).
 
@@ -58,7 +60,9 @@ ios.csv andorid.csv
 ```
 
 
-**OneSinal**
+### Migrate to OneSinal
+
+> [OneSignal](https://onesignal.com) is a completely free push notification delivery service. We fund our product development through products offered to enterprise clients. - [relatedcode/ParseAlternatives](https://github.com/relatedcode/ParseAlternatives)
 
 Before exporting data toOneSignal, please add credential for OneSignal on `credential.json` like below:
 
