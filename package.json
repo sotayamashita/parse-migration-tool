@@ -1,6 +1,6 @@
 {
   "name": "parse-migration-tool",
-  "version": "2.1.1",
+  "version": "2.1.2",
   "description": "Parse migration tool",
   "main": "lib/index.js",
   "bin": {
