@@ -12,8 +12,10 @@ Create `credencial.json` to send request:
 
 ```json
 {
-  "applicationId": "<application id>",
-  "masterKey": "<master key>"
+  "parse": {
+    "applicationId": "<application id>",
+    "masterKey": "<master key>"
+  }
 }
 ```
 
@@ -27,6 +29,8 @@ $ npm install -g parse-migration-tool
 ```
 
 ## Usage
+
+**Help:**
 
 ```bash
   Usage: parse [options] [command]
@@ -43,22 +47,40 @@ $ npm install -g parse-migration-tool
     -V, --version  output the version number
 ```
 
-## Example
+**Growth Push**
 
-**Get installation objects:**
-
-```bash
-$ parse installation credential.json
-```
-
-**Create files or Send request to import:**
+**For Growth push, the script will generate CSV files which are named `ios.csv` and `android.csv`**. You can use it on Growth Push dashbord. They also provide [API](http://ja.growthpush.com/documents#restClientsApi) to import but it will take much time so I choose the way. If you would like to import yours with API, please create a [issue](https://github.com/sotayamashita/parse-migration-tool/issues/new?title=Growth%20Push%20-%20I%20would%20like%20to%20import%20device%20token%20with%20API).
 
 ```bash
-$ parse migration credential.json -s growthpush
+$ parse migrate -s growthpush credential.json
+$ ls
+ios.csv andorid.csv
 ```
 
-* [x] [Growth Push](http://en.growthpush.com/) - (type: file) ... `-s or --service growthpush`
-* [ ] [OneSignal](https://onesignal.com/) - (type: request) ... `-s or --service onesignal`
+
+**OneSinal**
+
+Before exporting data toOneSignal, please add credential for OneSignal on `credential.json` like below:
+
+```json
+{
+  "parse": {
+    "applicationId": "<application id>",
+    "masterKey": "<master key>"
+  },
+  "oneSignal": {
+    "appId": "<application id>"
+  }
+}
+```
+
+* **appId** - (Required) - Your OneSignal Application Key
+
+**For OneSignal, the script will send a request to export device token**. Android developers, please read a [Urgent note for Parse Android Push users](https://onesignal.com/blog/important-note-for-android-parse-push-users/). Parse Channels will be imported as OneSignal tags.
+
+```bash
+$ parse migrate -s onesignal credential.json
+```
 
 ## License
 
