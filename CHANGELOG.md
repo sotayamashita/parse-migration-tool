@@ -4,4 +4,4 @@ All notable changes to this project will be documented in this file. This projec
 
 ## 2.2.0
 
-* Checks for available update and notify - [80930f2](https://github.com/sotayamashita/parse-migration-tool/commit/80930f2ff0c5c2bb25da2042eb0dda4e4fd547bb)
+* Checks for available update and notify - [97ac27c](https://github.com/sotayamashita/parse-migration-tool/commit/97ac27c4d7a919131e309d376693fda0abcc377f)
