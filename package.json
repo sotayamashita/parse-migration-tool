@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "axios": "^0.9.1",
-    "commander": "^2.9.0"
+    "commander": "^2.9.0",
+    "update-notifier": "^0.6.0"
   }
 }

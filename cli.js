@@ -2,9 +2,13 @@
 'use strict';
 
 const fs = require('fs');
+const updateNotifier = require('update-notifier');
 const pkg = require('./package.json');
 const program = require('commander');
 const Parse = require('./lib/Parse.js').default;
+
+// Checks for available update and notify
+updateNotifier({pkg}).notify({defer: false});
 
 program
   .version(pkg.version);
