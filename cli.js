@@ -8,7 +8,7 @@ var program = require('commander');
 var Parse = require('./lib/Parse.js').default;
 
 // Checks for available update and notify
-updateNotifier({pkg: pkg}).notify({defer: false});
+updateNotifier({pkg: pkg}).notify();
 program.version(pkg.version);
 
 program
