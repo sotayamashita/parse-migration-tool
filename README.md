@@ -64,7 +64,7 @@ ios.csv andorid.csv
 
 > [OneSignal](https://onesignal.com) is a completely free push notification delivery service. We fund our product development through products offered to enterprise clients. - [relatedcode/ParseAlternatives](https://github.com/relatedcode/ParseAlternatives)
 
-Before exporting data toOneSignal, please add credential for OneSignal on `credential.json` like below:
+Before exporting data to OneSignal, please add credential for OneSignal on `credential.json` like below:
 
 ```json
 {
@@ -84,6 +84,36 @@ Before exporting data toOneSignal, please add credential for OneSignal on `crede
 
 ```bash
 $ parse migrate -s onesignal credential.json
+```
+
+### Amazon Simple Notification Service (SNS)
+
+> [Amazon Simple Notification Service (SNS)](https://aws.amazon.com/sns/) is a fast, flexible, fully managed publish-subscribe based messaging service for mobile and enterprise messaging that is used by several leading brands and startups to send billions of messages every day - [relatedcode/ParseAlternatives](https://github.com/relatedcode/ParseAlternatives)
+
+Before exporting data to Amazon SNS, please add credential for Amazon SNS on `credential.json` like below:
+
+```json
+{
+  "parse": {
+    "applicationId": "<application id>",
+    "masterKey": "<master key>"
+  },
+  "amazonSns": {
+    "accessKeyId": "<accessKeyId>", 
+    "secretAccessKey": "<secret access key>", 
+    "region": "<region>"
+  }
+}
+```
+
+* **accessKeyId** - (Required)
+* **secretAccessKey** - (Required)
+* **region** - (Required) 
+
+_[Read more about configuration](http://docs.aws.amazon.com/AWSJavaScriptSDK/guide/node-configuring.html)_
+
+```bash
+$ parse migrate -s sns credential.json
 ```
 
 ## License
