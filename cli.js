@@ -15,9 +15,9 @@ program
   .command('installation <file>')
   .description('Retrieve the contents of an installation objects')
   .action(function(file, options){
-    const d = JSON.parse(fs.readFileSync(file, 'utf8'));
-    const p = new Parse(d.applicationId, d.masterKey);
-    const r = p.retriveInstallations();
+    var d = JSON.parse(fs.readFileSync(file, 'utf8'));
+    var p = new Parse(d.applicationId, d.masterKey);
+    var r = p.retriveInstallations();
 
     if (typeof r.then === 'function') {
       r.then(function(response) {
@@ -32,16 +32,16 @@ program
   .option('-s, --service [service]')
   .option('-o, --out-file [out]')
   .action(function(file, options) {
-    const d = JSON.parse(fs.readFileSync(file, 'utf8'));
-    const p = new Parse(d.applicationId, d.masterKey);
-    const r = p.retriveInstallations();
+    var d = JSON.parse(fs.readFileSync(file, 'utf8'));
+    var p = new Parse(d.applicationId, d.masterKey);
+    var r = p.retriveInstallations();
 
-    const iosData = [];
-    const androidData = [];
+    var iosData = [];
+    var androidData = [];
 
     if (typeof r.then === 'function') {
       r.then(function(response) {
-        const rs = response.data.results;
+        var rs = response.data.results;
         for (var i = 0; i < rs.length; i++) {
           if (rs[i].deviceType === 'ios') {
             iosData.push([rs[i].deviceToken]);
