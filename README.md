@@ -3,7 +3,6 @@
 </p>
 
 [![npm](https://img.shields.io/npm/v/parse-migration-tool.svg?style=flat-square)](https://www.npmjs.com/package/parse-migration-tool)
-[![license](https://img.shields.io/github/license/sotayamashita/parse-migration-tool.svg?style=flat-square)](https://github.com/sotayamashita/parse-migration-tool/blob/master/LICENSE)
 
 **Parse Migration Tool** is [Parse](https://parse.com/) Migration CLI Tool
 
@@ -59,7 +58,6 @@ $ parse migration credential.json -s growthpush
 ```
 
 * [x] [Growth Push](http://en.growthpush.com/) - (type: file) ... `-s or --service growthpush`
-* [ ] [Amazon SNS](https://aws.amazon.com/sns/?nc1=h_ls) - (type: request) ... `-s or --service amazon`
 * [ ] [OneSignal](https://onesignal.com/) - (type: request) ... `-s or --service onesignal`
 
 ## License
