@@ -59,61 +59,6 @@ $ ls
 ios.csv andorid.csv
 ```
 
-
-### Migrate to OneSinal
-
-> [OneSignal](https://onesignal.com) is a completely free push notification delivery service. We fund our product development through products offered to enterprise clients. - [relatedcode/ParseAlternatives](https://github.com/relatedcode/ParseAlternatives)
-
-Before exporting data to OneSignal, please add credential for OneSignal on `credential.json` like below:
-
-```json
-{
-  "parse": {
-    "applicationId": "<application id>",
-    "masterKey": "<master key>"
-  },
-  "oneSignal": {
-    "appId": "<application id>"
-  }
-}
-```
-
-* **appId** - (Required) - Your OneSignal Application Key
-
-**For OneSignal, the script will send a request to export device token**. Android developers, please read a [Urgent note for Parse Android Push users](https://onesignal.com/blog/important-note-for-android-parse-push-users/). Parse Channels will be imported as OneSignal tags.
-
-```bash
-$ parse migrate -s onesignal credential.json
-```
-
-### Migrate to Amazon Simple Notification Service (SNS)
-
-> [Amazon Simple Notification Service (SNS)](https://aws.amazon.com/sns/) is a fast, flexible, fully managed publish-subscribe based messaging service for mobile and enterprise messaging that is used by several leading brands and startups to send billions of messages every day - [relatedcode/ParseAlternatives](https://github.com/relatedcode/ParseAlternatives)
-
-Before exporting data to Amazon SNS, please add credential for Amazon SNS on `credential.json` like below:
-
-```json
-{
-  "parse": {
-    "applicationId": "<application id>",
-    "masterKey": "<master key>"
-  },
-  "amazonSns": {
-    "accessKeyId": "<accessKeyId>", 
-    "secretAccessKey": "<secret access key>", 
-    "region": "<region>"
-  }
-}
-```
-
-* **accessKeyId** - (Required)
-* **secretAccessKey** - (Required)
-* **region** - (Required) 
-
-```bash
-$ parse migrate -s sns credential.json
-```
-
 ## License
 
 MIT © Sota Yamashita

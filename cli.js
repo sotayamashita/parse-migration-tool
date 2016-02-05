@@ -2,6 +2,7 @@
 'use strict';
 
 var fs = require('fs');
+var colors = require('colors');
 var updateNotifier = require('update-notifier');
 var pkg = require('./package.json');
 var program = require('commander');
@@ -15,55 +16,99 @@ program
   .command('installation <file>')
   .description('Retrieve the contents of an installation objects')
   .action(function(file, options){
-    var d = JSON.parse(fs.readFileSync(file, 'utf8'));
-    var p = new Parse(d.applicationId, d.masterKey);
-    var r = p.retriveInstallations();
 
-    if (typeof r.then === 'function') {
-      r.then(function(response) {
+    // Read json file
+    var data;
+    try {
+      data = JSON.parse(fs.readFileSync(file, 'utf8'));
+    } catch (err) {
+      console.log('Cannnot read the file'.red);
+      process.exit(1);
+    }
+
+    // Detect data object has parse key
+    if (!data.hasOwnProperty('parse')) {
+      console.log('Please add parse credential information'.red);
+      process.exit(1);
+    }
+
+    // Detect parse keies
+    if (!data.parse.applicationId || !data.parse.masterKey) {
+      console.log('You must have applicationId and masterKey'.red);
+      process.exit(1);
+    }
+
+    // Output data
+    var parse = new Parse(data.parse.applicationId, data.parse.masterKey);
+    var result = parse.retriveInstallations();
+    if (typeof result.then === 'function') {
+      result.then(function(response) {
         console.log(response.data.results);
       })
     }
   });
 
 program
-  .command('migration <file>')
-  .description('Create config file to migrate')
+  .command('migrate <file>')
+  .description('Create files or Send request to import')
   .option('-s, --service [service]')
   .option('-o, --out-file [out]')
   .action(function(file, options) {
-    var d = JSON.parse(fs.readFileSync(file, 'utf8'));
-    var p = new Parse(d.applicationId, d.masterKey);
-    var r = p.retriveInstallations();
 
-    var iosData = [];
-    var androidData = [];
+    // Read json file
+    var data;
+    try {
+      data = JSON.parse(fs.readFileSync(file, 'utf8'));
+    } catch (err) {
+      console.log('Cannnot read the file'.red);
+      process.exit(1);
+    }
 
-    if (typeof r.then === 'function') {
-      r.then(function(response) {
-        var rs = response.data.results;
-        for (var i = 0; i < rs.length; i++) {
-          if (rs[i].deviceType === 'ios') {
-            iosData.push([rs[i].deviceToken]);
-          } else {
-            androidData.push([rs[i].deviceToken]);
+    // Detect data object has parse key
+    if (!data.hasOwnProperty('parse')) {
+      console.log('Please add parse credential information'.red);
+      process.exit(1);
+    }
+
+    // Detect parse keies
+    if (!data.parse.applicationId || !data.parse.masterKey) {
+      console.log('You must have applicationId and masterKey'.red);
+      process.exit(1);
+    }
+
+    var parse = new Parse(data.parse.applicationId, data.parse.masterKey);
+    var result = parse.retriveInstallations();
+
+    // Growth Push
+    if (options.service === 'growthpush') {
+      var iosData = [];
+      var androidData = [];
+      if (typeof result.then === 'function') {
+        result.then(function(response) {
+          var rs = response.data.results;
+          for (var i = 0; i < rs.length; i++) {
+            if (rs[i].deviceType === 'ios') {
+              iosData.push([rs[i].deviceToken]);
+            } else {
+              androidData.push([rs[i].deviceToken]);
+            }
           }
-        }
-        if (iosData.length > 0) {
-          fs.writeFile('ios.csv', p.toCSV(iosData), 'utf8', function(err) {
-            console.log('ios.csv saved');
-          });
-        } else {
-          console.log('It looks you do not have ios device');
-        }
-        if (androidData.length > 0) {
-          fs.writeFile('android.csv', p.toCSV(androidData), 'utf8', function(err) {
-            console.log('android saved');
-          });
-        } else {
-          console.log('It looks you do not have android device');
-        }
-      });
+          if (iosData.length > 0) {
+            fs.writeFile('ios.csv', parse.toCSV(iosData), 'utf8', function(err) {
+              console.log('ios.csv saved');
+            });
+          } else {
+            console.log('It looks you do not have ios device');
+          }
+          if (androidData.length > 0) {
+            fs.writeFile('android.csv', parse.toCSV(androidData), 'utf8', function(err) {
+              console.log('android saved');
+            });
+          } else {
+            console.log('It looks you do not have android device');
+          }
+        });
+      }
     }
   });
 

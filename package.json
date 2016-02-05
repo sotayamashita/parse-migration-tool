@@ -1,6 +1,6 @@
 {
   "name": "parse-migration-tool",
-  "version": "0.1.0",
+  "version": "0.2.0",
   "description": "Parse migration tool",
   "main": "lib/index.js",
   "bin": {
@@ -38,6 +38,7 @@
   },
   "dependencies": {
     "axios": "^0.9.1",
+    "colors": "^1.1.2",
     "commander": "^2.9.0",
     "update-notifier": "^0.6.0"
   }
