@@ -6,7 +6,7 @@ var colors = require('colors');
 var updateNotifier = require('update-notifier');
 var pkg = require('./package.json');
 var program = require('commander');
-var Parse = require('./lib/Parse.js').default;
+var ParseService = require('./lib/service/ParseService.js').default;
 
 // Checks for available update and notify
 updateNotifier({pkg: pkg}).notify();
@@ -39,7 +39,7 @@ program
     }
 
     // Output data
-    var parse = new Parse(data.parse.applicationId, data.parse.masterKey);
+    var parse = new ParseService(data.parse.applicationId, data.parse.masterKey);
     var result = parse.retriveInstallations();
     if (typeof result.then === 'function') {
       result.then(function(response) {
@@ -76,7 +76,7 @@ program
       process.exit(1);
     }
 
-    var parse = new Parse(data.parse.applicationId, data.parse.masterKey);
+    var parse = new ParseService(data.parse.applicationId, data.parse.masterKey);
     var result = parse.retriveInstallations();
 
     // Growth Push
