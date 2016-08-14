@@ -11,7 +11,7 @@
     "build": "gulp build",
     "watch": "gulp watch",
     "lint": "eslint --format 'node_modules/eslint-friendly-formatter' src",
-    "preinstall": "npm run clean && npm run build"
+    "prepublish": "npm run clean && npm run build"
   },
   "repository": {
     "type": "git",
