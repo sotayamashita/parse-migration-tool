@@ -1,10 +1,9 @@
-<p align="center">
-  <img src="https://github.com/sotayamashita/parse-migration-tool/blob/master/media/logo.png" width="400px">
-</p>
+[package-badge]: https://img.shields.io/badge/packages-by_me-blue.svg?style=flat-square
+[package-link]:  https://github.com/search?utf8=%E2%9C%93&q=package%2Buser%3Asotayamashita&type=Repositories&ref=searchresults
 
-[![npm](https://img.shields.io/npm/v/parse-migration-tool.svg?style=flat-square)](https://www.npmjs.com/package/parse-migration-tool)
+# parse-migration-tool [![Packages By Me][package-badge]][package-link]
 
-**Parse Migration Tool** is [Parse](https://parse.com/) Migration CLI Tool
+>  [Parse](https://parse.com/) Migration CLI Tool
 
 ## Setup
 
@@ -30,7 +29,7 @@ $ npm install -g parse-migration-tool
 
 ## Usage
 
-### Help
+There are multiple command-line options available:
 
 ```bash
   Usage: parse [options] [command]
