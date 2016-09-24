@@ -1,7 +1,9 @@
-[package-badge]: https://img.shields.io/badge/packages-by_me-blue.svg?style=flat-square
+[npm-image]: https://badge.fury.io/js/parse-migration-tool.svg
+[npm-url]: https://npmjs.org/package/parse-migration-tool
+[package-badge]: https://img.shields.io/badge/packages-by_me-blue.svg
 [package-link]:  https://github.com/search?utf8=%E2%9C%93&q=package%2Buser%3Asotayamashita&type=Repositories&ref=searchresults
 
-# parse-migration-tool [![Packages By Me][package-badge]][package-link]
+# parse-migration-tool [![NPM version][npm-image]][npm-url] [![Packages By Me][package-badge]][package-link]
 
 >  [Parse](https://parse.com/) Migration CLI Tool
 
